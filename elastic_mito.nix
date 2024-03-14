@@ -1,9 +1,13 @@
-{ pkgs ? import <nixpkgs> {} }:
-pkgs.buildGoModule rec {
+{ lib
+, fetchFromGitHub
+, buildGoModule
+}:
+
+buildGoModule rec {
   pname = "mito";
   version = "1.9.0";
 
-  src = pkgs.fetchFromGitHub {
+  src = fetchFromGitHub {
     owner = "elastic";
     repo = "mito";
     rev = "v${version}";
@@ -16,10 +20,10 @@ pkgs.buildGoModule rec {
     export GOROOT="$(go env GOROOT)"
   '';
 
-  meta = with pkgs.lib; {
-    description = "message stream processing engine based on CEL";
+  meta = with lib; {
+    description = "elastic mito";
     homepage = "https://github.com/elastic/mito";
-    license = licenses.asl20;
+    license = licenses.mit;
     maintainers = with maintainers; [ tttttx2 ];
   };
   checkPhase = "";
