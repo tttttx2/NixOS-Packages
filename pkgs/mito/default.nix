@@ -1,7 +1,4 @@
-{ lib
-, fetchFromGitHub
-, buildGoModule
-}:
+{ lib, fetchFromGitHub, buildGoModule}:
 
 buildGoModule rec {
   pname = "mito";
@@ -27,5 +24,4 @@ buildGoModule rec {
     maintainers = with maintainers; [ tttttx2 ];
   };
   checkPhase = "";
-
 }
