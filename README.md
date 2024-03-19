@@ -15,3 +15,14 @@ environment.systemPackages = [
 ];
 }
 ```
+
+## Build package locally
+```
+nix-build -E 'with import <nixpkgs> {}; callPackage ./XXX.nix {}'
+```
+
+## Run package locally
+```
+nix-shell --pure -E 'with import <nixpkgs> {}; callPackage ./XXX.nix {}'
+```
+
