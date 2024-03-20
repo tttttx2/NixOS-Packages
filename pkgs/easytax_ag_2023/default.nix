@@ -28,6 +28,7 @@ stdenv.mkDerivation rec {
     tar -xzf $src
     mv EasyTax${version}AG/* $out
     mv EasyTax${version}AG/.install4j $out
+    ln -s "$out/EasyTax${version}AG" "$out/bin/easytax_ag_2023"
     # Otherwise it looks "suspicious"
     chmod -R g-w $out
   '';
