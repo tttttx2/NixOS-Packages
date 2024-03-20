@@ -1,4 +1,4 @@
-{ lib, stdenv, fetchurl, jdk17}:
+{ lib, stdenv, fetchurl, jdk17, makeWrapper}:
 
 stdenv.mkDerivation rec {
   pname = "easytax_ag_2023";
@@ -10,6 +10,7 @@ stdenv.mkDerivation rec {
   };
 
   nativeBuildInputs = [
+    makeWrapper
   ];
 
   buildInputs = [
@@ -28,8 +29,13 @@ stdenv.mkDerivation rec {
     mkdir -p $out/opt
     tar -xzf $src
     mv EasyTax${version}AG $out/opt/
-    ln -s "$out/opt/EasyTax${version}AG/EasyTax${version}_AG" "$out/bin/easytax_ag_2023"
+    #ln -s "$out/opt/EasyTax${version}AG/EasyTax${version}_AG" "$out/bin/easytax_ag_2023"
     # Otherwise it looks "suspicious"
+    makeWrapper $out/opt/EasyTax${version}AG/EasyTax${version}_AG $out/bin/easytax_ag_2023 \
+      --prefix PATH : ${jdk17}/bin \
+
+
+
     chmod -R g-w $out
   '';
 
