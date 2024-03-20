@@ -15,6 +15,10 @@ environment.systemPackages = [
 ];
 }
 ```
+add this repo as a channel
+```
+nix-channel --add https://github.com/tttttx2/NixOS-Packages/archive/main.tar.gz tttttx2
+```
 
 ## Build package locally
 ```
