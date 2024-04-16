@@ -2,13 +2,13 @@
 
 buildGoModule rec {
   pname = "mito";
-  version = "1.9.0";
+  version = "1.10.0";
 
   src = fetchFromGitHub {
     owner = "elastic";
     repo = "mito";
     rev = "v${version}";
-    hash = "sha256-sJYHKDmVT2n605ia+8pARqS20n+6kOq/s9hPhEdjC3g=";
+    hash = "8e142ae1aab52108b94ae855897fc442c5aa124bded5ba8a2a73b62e405720df";
   };
 
   vendorHash = "sha256-aGxFdPuviUwWNcEZNzZipM97sUiB6dLwmQJuodssEvo=";
