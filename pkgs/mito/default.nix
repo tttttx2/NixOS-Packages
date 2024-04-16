@@ -8,7 +8,7 @@ buildGoModule rec {
     owner = "elastic";
     repo = "mito";
     rev = "v${version}";
-    hash = "8e142ae1aab52108b94ae855897fc442c5aa124bded5ba8a2a73b62e405720df";
+    hash = "sha256-VeJ8zx2tOGwtNSqE5wjcZjdjez0mlpXq03a/yOrt2cA=";
   };
 
   vendorHash = "sha256-aGxFdPuviUwWNcEZNzZipM97sUiB6dLwmQJuodssEvo=";
